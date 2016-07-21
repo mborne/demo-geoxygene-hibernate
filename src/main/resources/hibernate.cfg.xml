@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost/demo-geoxygene</property>
+        <property name="hibernate.connection.username">postgis</property>
+        <property name="hibernate.connection.password">postgis</property>
+        
+		<!-- SPATIAL SQL dialect -->
+        <property name="dialect">org.hibernatespatial.postgis.PostgisDialect</property>
+        
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">1</property>
+        <property name="hibernate.current_session_context_class">org.hibernate.context.ThreadLocalSessionContext</property> 
+        <property name="hbm2ddl.auto">create-drop</property> 
+        
+        <!-- Schema par defaut -->
+        <property name="hibernate.default_schema">public</property>
+
+        <mapping class="org.example.domain.Road" />
+
+    </session-factory>
+</hibernate-configuration>
